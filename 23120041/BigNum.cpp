@@ -1,4 +1,4 @@
-﻿#include "Stack.h"
+﻿#include "StackAndQueue.h"
 #include "BigNum.h"
 
 // Nhập xuất em đang làm mấy cái cơ bản thôi ạ, do em thấy làm nhập xuất kết hợp vs ký pháp Ba Lan
@@ -181,10 +181,12 @@ BigInt operator+ (BigInt a, BigInt b) {
     if (a.sign != b.sign) {
         if (a <= b) {
             result.sign = b.sign;
+            a.sign = b.sign;
             result = b - a;
         }
         else {
             result.sign = a.sign;
+            a.sign = b.sign;
             result = a - b;
         }
     }

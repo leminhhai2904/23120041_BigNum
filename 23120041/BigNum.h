@@ -1,13 +1,13 @@
 ﻿#ifndef __BIGNUM_H_
 #define __BIGNUM_H_
 
-#include "Stack.h"
 #include <iostream>
 #include <sstream>
 #include <fstream>
 #include <cstring>
 #include <vector>
 #include <stdint.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -37,6 +37,7 @@ BigInt operator* (BigInt a, int b);
 BigInt operator/ (BigInt a, int b);
 
 #endif // !__BIGNUM_H_
+
 /*
 		3 x 3
 		3 + 6 

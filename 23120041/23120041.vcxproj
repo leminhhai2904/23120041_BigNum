@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClCompile Include="BigNum.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="ReadAndWriteFile.cpp" />
+    <ClCompile Include="StackAndQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BigNum.h" />
-    <ClInclude Include="Stack.h" />
+    <ClInclude Include="ReadAndWriteFile.h" />
+    <ClInclude Include="StackAndQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
