@@ -138,8 +138,8 @@
     <ClInclude Include="StackAndQueue.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Source\input.txt" />
-    <Text Include="Source\output.txt" />
+    <Text Include="Resource\input.txt" />
+    <Text Include="Resource\output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

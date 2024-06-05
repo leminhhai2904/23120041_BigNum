@@ -3,8 +3,8 @@
 #include "ReadAndWriteFile.h"
 
 int main() {
-	string filenameInput = "./Source/input.txt";
-	string filenameOutput = "./Source/output.txt";
+	string filenameInput = "./Resource/input.txt";
+	string filenameOutput = "./Resource/output.txt";
 	ReadAndWriteFile(filenameInput, filenameOutput);
 	return 0;
 }
