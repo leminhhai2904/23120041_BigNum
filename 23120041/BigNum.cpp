@@ -96,16 +96,10 @@ bool operator < (BigInt a, BigInt b)
 
     for (int i = 0; i < a.digits.size(); ++i) {
         if (a.digits[i] < b.digits[i]) {
-            if (a.sign == 0)
-                return true;
-            else
-                return false;
+            return (a.sign == 0);
         }
         else if (a.digits[i] > b.digits[i]) {
-            if (a.sign == 0)
-                return false;
-            else
-                return true;
+            return (a.sign != 0);
         }
     }
     return false;
@@ -216,12 +210,7 @@ BigInt operator- (BigInt a, BigInt b) {
     int sz = a.digits.size();
 
     if (a.sign != b.sign) {
-        if (b.sign == 0) {
-            b.sign = 1;
-        }
-        else {
-            b.sign = 0;
-        }
+        b.sign = a.sign;
         result = a + b;
         result.sign = a.sign;
     }
