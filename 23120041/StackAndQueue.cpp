@@ -165,7 +165,18 @@ bool Queue_Push(Queue& q, const Data& data) {
 		return false;
 	}
 	AddTail(q.l, p);
+	if (q.l.pHead == q.l.pTail) {
+		q.l.pHead->pNext = q.l.pTail->pNext = NULL;
+	}
 	return true;
+}
+
+int Queue_Size(const Queue& q) {
+	int length = 0;
+	for (Node* p = q.l.pHead; p != NULL; p = p->pNext) {
+		length++;
+	}
+	return length;
 }
 
 void Queue_Clear(Queue& q) {

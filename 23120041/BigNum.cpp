@@ -76,6 +76,9 @@ void del_zero(BigInt& a)
 
 void ConvertIntToBigInt(int a, BigInt& b) {
     b.digits.clear();
+    if (a == 0) {
+        b.digits.push_back('0');
+    }
     while (a) {
         b.digits.push_back(a % 10 + '0');
         a /= 10;
@@ -180,13 +183,11 @@ BigInt operator+ (BigInt a, BigInt b) {
 
     if (a.sign != b.sign) {
         if (a <= b) {
-            result.sign = b.sign;
             a.sign = b.sign;
             result = b - a;
         }
         else {
-            result.sign = a.sign;
-            a.sign = b.sign;
+            b.sign = a.sign;
             result = a - b;
         }
     }
@@ -289,10 +290,20 @@ BigInt operator- (BigInt a, BigInt b) {
 BigInt operator* (BigInt a, BigInt b) {
     BigInt result;
     ConvertIntToBigInt(0, result);
-    if (b == 0) {
+    // check dấu của kết quả
+    int sign = 0;
+    if (a.sign + b.sign == 1) {
+        sign = 1;
+    }
+    else {
+        sign = 0;
+    }
+    a.sign = b.sign = 0;
+
+    if (a == result || b == result) {
         return result;
     }
-    
+    // Tính toán
     while (!(b <= 0)) {
         if (b.digits[b.digits.size() - 1] % 2 != 0) {
             result = result + a;
@@ -300,11 +311,13 @@ BigInt operator* (BigInt a, BigInt b) {
         a = a * 2;
         b = b / 2;
     }
+    result.sign = sign;
     return result;
 }
 
 BigInt operator/ (BigInt a, BigInt b)
 {
+
     int sign;
     BigInt res;
     if (a.sign + b.sign == 1) {
@@ -315,9 +328,16 @@ BigInt operator/ (BigInt a, BigInt b)
     }
     a.sign = b.sign = 0;
     res.digits.push_back('0'); // Ban đầu res = 0
+    if (b == 0) {
+        cout << "Can't divide for zero\n";
+        return res;
+    }
+    if (a == 0) {
+        return res;
+    }
 
     BigInt l, r;
-    l.digits.push_back(1); // Gán l = 1.
+    l.digits.push_back('1'); // Gán l = 1.
     BigInt one;
     ConvertIntToBigInt(1, one);
     r = a; // Gán r = a.
@@ -347,7 +367,7 @@ BigInt operator* (BigInt a, int b) {
 BigInt operator/ (BigInt a, int b) {
     BigInt result;
     if (b == 0) {
-        cout << "Can't divide zero\n";
+        cout << "Can't divide for zero\n";
         return result;
     }
     else {

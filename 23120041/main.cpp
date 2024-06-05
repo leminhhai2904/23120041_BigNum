@@ -3,15 +3,15 @@
 #include "ReadAndWriteFile.h"
 
 int main() {
-	string filenameInput = "input.txt";
-	string filenameOutput = "output.txt";
-
+	string filenameInput = "./Source/input.txt";
+	string filenameOutput = "./Source/output.txt";
 	ReadAndWriteFile(filenameInput, filenameOutput);
-
 	return 0;
 }
 
 /*
-		123456789
-		
+(5-2)*3
+800 / 4 + 20
+((-5 + (89 * 6) - 36) * (55 + 5) + 33) * 4 - 10
+-9 + 21 / 2 * 8 + 4
 */

@@ -6,13 +6,11 @@
 #include <fstream>
 #include <cstring>
 #include <vector>
-#include <stdint.h>
-#include <algorithm>
 
 using namespace std;
 
 struct BigInt {
-	vector<uint8_t> digits;
+	vector<char> digits;
 	short sign = 0;
 };
 

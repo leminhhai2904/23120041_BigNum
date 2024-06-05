@@ -51,5 +51,6 @@ void InitQueue(Queue& q);
 Data Queue_Front(const Queue& q);
 Data Queue_Pop(Queue& q);
 bool Queue_Push(Queue& q, const Data& data);
+int Queue_Size(const Queue& q);
 void Queue_Clear(Queue& q);
 #endif // !__STACKANDQUEUE_H_
